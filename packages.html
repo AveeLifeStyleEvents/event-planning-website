@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avee Lifestyle Events | Event Planning</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gold: #b28a52;
+  --cream: #fbf8f3;
+  --dark: #302923;
+  --text: #766d65;
+  --white: #fffdf9;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--dark);
+  background: var(--white);
+  line-height: 1.7;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font: 26px Georgia, serif;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.logo span {
+  display: block;
+  color: var(--gold);
+  font: 10px Arial, sans-serif;
+  letter-spacing: 3px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+nav a {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+nav a:hover { color: var(--gold); }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--cream);
+  min-height: 560px;
+}
+
+.hero-content {
+  padding: 70px 12%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font: 400 clamp(40px, 5vw, 68px)/1.1 Georgia, serif;
+  margin: 20px 0;
+}
+
+h1 em { color: var(--gold); }
+
+.hero p {
+  color: var(--text);
+  margin-bottom: 28px;
+}
+
+.hero-image { min-height: 450px; }
+
+.hero-image img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 24px;
+  background: var(--dark);
+  color: white;
+  border: 1px solid var(--dark);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.section { padding: 80px 7%; }
+
+.section-heading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 42px;
+}
+
+.section-heading h2,
+.about h2,
+.contact h2 {
+  font: 400 clamp(32px, 4vw, 48px)/1.2 Georgia, serif;
+  margin: 14px 0;
+}
+
+.section-heading p,
+.about p { color: var(--text); }
+
+/* PORTFOLIO */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 22px;
+}
+
+.gallery-item {
+  grid-column: span 6;
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  background: #eee6dc;
+}
+
+.gallery-item:nth-child(1),
+.gallery-item:nth-child(4) {
+  grid-column: span 7;
+}
+
+.gallery-item:nth-child(2),
+.gallery-item:nth-child(3) {
+  grid-column: span 5;
+}
+
+.gallery-item:nth-child(n+5) {
+  grid-column: span 4;
+}
+
+.gallery-item img {
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  transition: transform .5s;
+}
+
+.gallery-item:hover img { transform: scale(1.05); }
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 45px 20px 18px;
+  color: white;
+  background: linear-gradient(transparent, rgba(0,0,0,.8));
+}
+
+.gallery-caption span {
+  color: #f1d9b4;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.gallery-caption h3 {
+  font: 400 24px Georgia, serif;
+}
+
+/* ABOUT */
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 8%;
+  background: var(--cream);
+}
+
+.about-image { height: 440px; }
+
+.about-image img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.about p { margin-bottom: 18px; }
+
+.text-link {
+  display: inline-block;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 4px;
+}
+
+/* PACKAGES */
+
+.packages-section { background: var(--cream); }
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.package-card {
+  padding: 30px;
+  background: var(--white);
+  border: 1px solid #e8dfd3;
+  display: flex;
+  flex-direction: column;
+  transition: .3s;
+}
+
+.package-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.featured-package { border-color: var(--gold); }
+
+.package-number {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.package-card h3 {
+  font: 400 28px/1.2 Georgia, serif;
+  margin-bottom: 15px;
+}
+
+.package-price {
+  color: #a57b43;
+  font: 400 clamp(23px, 3vw, 31px)/1.4 Georgia, serif;
+  margin-bottom: 14px;
+}
+
+.package-intro {
+  color: var(--text);
+  margin-bottom: 18px;
+}
+
+.package-card ul {
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+.package-card li {
+  position: relative;
+  padding: 10px 0 10px 24px;
+  border-bottom: 1px solid #f0e9df;
+  font-size: 14px;
+}
+
+.package-card li::before {
+  content: "✓";
+  color: var(--gold);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.package-link {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--gold);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.package-link:hover { color: var(--gold); }
+
+.package-note {
+  max-width: 1100px;
+  margin: 28px auto 0;
+  padding: 22px;
+  border-left: 3px solid var(--gold);
+  background: var(--white);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.package-note strong { color: var(--dark); }
+
+/* CONTACT */
+
+.contact {
+  padding: 80px 7%;
+  text-align: center;
+  color: white;
+  background: var(--dark);
+}
+
+.contact p {
+  max-width: 550px;
+  margin: 0 auto 25px;
+  color: #d8cec2;
+}
+
+.contact .btn {
+  background: transparent;
+  border-color: var(--gold);
+}
+
+.contact .btn:hover { background: var(--gold); }
+
+footer {
+  padding: 25px 7%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--text);
+  font-size: 13px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+  header {
+    flex-direction: column;
+  }
+
+  nav { justify-content: center; gap: 14px; }
+
+  .hero { grid-template-columns: 1fr; }
+
+  .hero-content { padding: 55px 8%; }
+
+  .hero-image { min-height: 350px; }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .packages-grid { grid-template-columns: 1fr; }
+
+  .gallery-item:nth-child(n) { grid-column: span 6; }
+}
+
+@media (max-width: 540px) {
+  header { padding: 20px 5%; }
+
+  nav a { font-size: 10px; }
+
+  .section { padding: 55px 5%; }
+
+  .gallery-item:nth-child(n) { grid-column: span 12; }
+
+  .package-card { padding: 24px; }
+
+  .about-image { height: 330px; }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+
+
+  <center>
+      <div class="eyebrow">Our Planning Services</div>
+    <h2>Event Planning Packages</h2>
+    <p>
+      Choose the planning support that suits your event,
+      vision and budget. All packages are tailored to your needs.
+    </p>
+  </div>
+  </center>
+
+  <div class="packages-grid">
+
+    <article class="package-card">
+      <div class="package-number">01 · INTIMATE EVENTS</div>
+      <h3>Mini Celebration</h3>
+      <div class="package-price">₦30,000 – ₦50,000</div>
+      <p class="package-intro">
+        For small birthdays and intimate celebrations.
+      </p>
+      <ul>
+        <li>Planning consultation</li>
+        <li>Basic budget and checklist</li>
+        <li>Vendor recommendations</li>
+      </ul>
+      <a href="#contact" class="package-link">Enquire Now →</a>
+    </article>
+
+    <article class="package-card">
+      <div class="package-number">02 · SOCIAL EVENTS</div>
+      <h3>Signature Planning</h3>
+      <div class="package-price">₦80,000 – ₦120,000</div>
+      <p class="package-intro">
+        For birthdays, introductions and smaller celebrations.
+      </p>
+      <ul>
+        <li>Budget and event timeline</li>
+        <li>Vendor sourcing and coordination</li>
+        <li>Event-day coordination within agreed hours</li>
+      </ul>
+      <a href="#contact" class="package-link">Enquire Now →</a>
+    </article>
+
+    <article class="package-card">
+      <div class="package-number">03 · WEDDINGS</div>
+      <h3>Wedding Planning</h3>
+      <div class="package-price">₦150,000 – ₦250,000+</div>
+      <p class="package-intro">
+        For couples who want professional planning support.
+      </p>
+      <ul>
+        <li>Budget and planning timeline</li>
+        <li>Vendor and decorator coordination</li>
+        <li>Wedding-day management within agreed scope</li>
+      </ul>
+      <a href="#contact" class="package-link">Enquire Now →</a>
+    </article>
+
+    <article class="package-card featured-package">
+      <div class="package-number">04 · PREMIUM EVENTS</div>
+      <h3>Luxury Full-Service Planning</h3>
+      <div class="package-price">From ₦300,000+</div>
+      <p class="package-intro">
+        For larger weddings and more complex celebrations.
+      </p>
+      <ul>
+        <li>Detailed planning and vendor management</li>
+        <li>Guest experience and event logistics</li>
+        <li>Event-day team coordination</li>
+      </ul>
+      <a href="#contact" class="package-link">Enquire Now →</a>
+    </article>
+
+  </div>
+
+  <div class="package-note">
+    <strong>Please note:</strong>
+    All packages are tailored to your event needs. Venue,
+    decoration, catering, photography, vendor bills and additional
+    staffing are quoted separately unless expressly included.
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="eyebrow">Let's Work Together</div>
+  <h2>Let's Make It Unforgettable.</h2>
+  <p>
+    Planning a wedding, birthday or special celebration?
+    Tell us about your vision and let's create something beautiful.
+  </p>
+  
+
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

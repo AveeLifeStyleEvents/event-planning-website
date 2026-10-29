@@ -1,0 +1,645 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Elegant event planning, wedding styling and floral design.">
+  <title>Avee Lifestyle Event</title>
+
+  <style>
+    /* GENERAL STYLES */
+    :root {
+      --gold: #b28a52;
+      --cream: #fbf8f3;
+      --dark: #302923;
+      --text: #766d65;
+      --white: #fffdf9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVIGATION */
+    header {
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      background: var(--white);
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 26px;
+      letter-spacing: 3px;
+      text-align: center;
+    }
+
+    .logo span {
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--cream);
+      min-height: 600px;
+    }
+
+    .hero-content {
+      padding: 80px 12%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font: 400 clamp(42px, 5vw, 70px)/1.1 Georgia, serif;
+      margin: 20px 0;
+    }
+
+    .hero h1 em {
+      color: var(--gold);
+    }
+
+    .hero p {
+      color: var(--text);
+      margin-bottom: 30px;
+      max-width: 450px;
+    }
+
+    .hero-image {
+      min-height: 500px;
+    }
+
+    .hero-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      background: var(--dark);
+      color: white;
+      border: 1px solid var(--dark);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* SECTION HEADINGS */
+    .section {
+      padding: 85px 7%;
+    }
+
+    .section-heading {
+      max-width: 650px;
+      text-align: center;
+      margin: 0 auto 45px;
+    }
+
+    .section-heading h2,
+    .about h2,
+    .contact h2 {
+      font: 400 clamp(32px, 4vw, 48px)/1.2 Georgia, serif;
+      margin: 15px 0;
+    }
+
+    .section-heading p,
+    .about p {
+      color: var(--text);
+    }
+
+    /* PORTFOLIO GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
+      background: #eee6dc;
+    }
+
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(4) {
+      grid-column: span 7;
+    }
+
+    .gallery-item:nth-child(2),
+    .gallery-item:nth-child(3) {
+      grid-column: span 5;
+    }
+
+    .gallery-item:nth-child(n+5) {
+      grid-column: span 4;
+    }
+
+    .gallery-item img {
+      height: 100%;
+      min-height: 300px;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 45px 22px 20px;
+      color: white;
+      background: linear-gradient(
+        transparent,
+        rgba(30, 23, 18, 0.85)
+      );
+    }
+
+    .gallery-caption span {
+      color: #f1d9b4;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .gallery-caption h3 {
+      font: 400 25px Georgia, serif;
+    }
+
+    /* ABOUT SECTION */
+    .about {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 8%;
+    }
+
+    .about-image {
+      height: 480px;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about p {
+      margin-bottom: 18px;
+    }
+
+    .text-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--gold);
+    }
+
+    /* SERVICES */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      padding: 30px 25px;
+      border: 1px solid #e8dfd3;
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-5px);
+    }
+
+    .service-card .number {
+      color: var(--gold);
+      font: 25px Georgia, serif;
+    }
+
+    .service-card h3 {
+      font: 400 24px Georgia, serif;
+      margin: 12px 0;
+    }
+
+    .service-card p {
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    /* CONTACT SECTION */
+    .contact {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 85px 7%;
+    }
+
+    .contact p {
+      color: #d8cec2;
+      max-width: 550px;
+      margin: 0 auto 28px;
+    }
+
+    .contact .btn {
+      background: transparent;
+      border-color: var(--gold);
+    }
+
+    .contact .btn:hover {
+      background: var(--gold);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 25px 7%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    /* TABLET */
+    @media (max-width: 850px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        padding: 65px 8%;
+      }
+
+      .hero-image {
+        min-height: 400px;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .gallery-item:nth-child(n) {
+        grid-column: span 6;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 540px) {
+      header {
+        padding: 20px 5%;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 10px;
+      }
+
+      .hero-content {
+        padding: 55px 7%;
+      }
+
+      .hero-image {
+        min-height: 320px;
+      }
+
+      .section {
+        padding: 60px 5%;
+      }
+
+      .gallery-item:nth-child(n) {
+        grid-column: span 12;
+      }
+
+      .gallery-item,
+      .gallery-item img {
+        min-height: 280px;
+      }
+
+      .about-image {
+        height: 350px;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <a href="#home" class="logo">
+      Avee Lifestyle Events
+      <span>STYLING · DESIGN · MOMENTS</span>
+    </a>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="eyebrow">Thoughtfully styled celebrations</div>
+
+      <h1>
+        Beautiful moments.<br>
+        <em>Timeless details.</em>
+      </h1>
+
+      <p>
+        From intimate gatherings to grand celebrations,
+        we bring your vision to life with beautiful florals,
+        elegant tablescapes and unforgettable details.
+      </p>
+
+      <a href="#portfolio" class="btn">Explore Our Work</a>
+    </div>
+
+    <div class="hero-image">
+      <img
+        src="event-portfolio/grand-reception.jpg"
+        alt="Grand wedding reception with white flowers and gold details">
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="section" id="portfolio">
+    <div class="section-heading">
+      <div class="eyebrow">Our Portfolio</div>
+      <h2>Celebrations Worth Remembering</h2>
+      <p>
+        Explore our collection of elegant event designs,
+        beautiful floral installations and carefully styled
+        celebrations.
+      </p>
+    </div>
+
+    <div class="gallery">
+
+      <div class="gallery-item">
+        <img src="event-portfolio/garden-table.jpg"
+             alt="Outdoor white floral tablescape" loading="lazy">
+        <div class="gallery-caption">
+          <span>Tablescape Design</span>
+          <h3>Garden Elegance</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="event-portfolio/classic-white-gold-table.jpg"
+             alt="Grand white wedding reception" loading="lazy">
+        <div class="gallery-caption">
+          <span>Wedding Reception</span>
+          <h3>The Grand Affair</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="event-portfolio/golden-reception.jpg"
+             alt="Gold chairs and floral reception styling" loading="lazy">
+        <div class="gallery-caption">
+          <span>Reception Styling</span>
+          <h3>Golden Hour</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="event-portfolio/floral-couple-stage.jpg"
+             alt="Couple seated under a floral gold backdrop" loading="lazy">
+        <div class="gallery-caption">
+          <span>Celebration Stage</span>
+          <h3>Blooming Romance</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="event-portfolio/birthday-balloon-backdrop.jpg"
+             alt="Gold and neutral birthday balloon backdrop" loading="lazy">
+        <div class="gallery-caption">
+          <span>Birthday Styling</span>
+          <h3>Golden Birthday</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="event-portfolio/event-styling.jpg"
+             alt="Event stylist arranging floral decorations" loading="lazy">
+        <div class="gallery-caption">
+          <span>Behind the Scenes</span>
+          <h3>Made with Care</h3>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="event-portfolio/classic-white-gold-table.jpg"
+             alt="Classic white and gold dining table" loading="lazy">
+        <div class="gallery-caption">
+          <span>Fine Details</span>
+          <h3>Classic in Gold</h3>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="about-image">
+      <img src="event-portfolio/grand-reception.jpg"
+           alt="Event decorator arranging flowers" loading="lazy">
+    </div>
+
+    <div>
+      <div class="eyebrow">About Our Brand</div>
+
+      <h2>Your Vision, Beautifully Brought to Life</h2>
+
+      <p>
+        We believe every celebration deserves to be special.
+        Our approach combines creativity, thoughtful planning
+        and attention to detail to create events that feel
+        personal, elegant and memorable.
+      </p>
+
+      <p>
+        From romantic weddings to milestone birthdays and
+        private celebrations, we transform ideas into
+        beautiful experiences.
+      </p>
+
+      <a href="#contact" class="text-link">
+        Let's Create Something Memorable
+      </a>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="section-heading">
+      <div class="eyebrow">What We Do</div>
+      <h2>Our Event Services</h2>
+      <p>
+        Beautiful styling and thoughtful details for every
+        occasion worth celebrating.
+      </p>
+    </div>
+
+    <div class="services">
+
+      <div class="service-card">
+        <div class="number">01</div>
+        <h3>Wedding Styling</h3>
+        <p>
+          Elegant ceremony backdrops, reception designs,
+          floral installations and romantic tablescapes.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="number">02</div>
+        <h3>Birthday Celebrations</h3>
+        <p>
+          Beautiful birthday backdrops, balloon installations,
+          milestone celebrations and custom themes.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="number">03</div>
+        <h3>Floral & Table Design</h3>
+        <p>
+          Statement centrepieces, floral arrangements,
+          elegant place settings and refined table styling.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="eyebrow">Let's Work Together</div>
+
+    <h2>Let's Make It Unforgettable.</h2>
+
+    <p>
+      Planning a wedding, birthday or special celebration?
+      Tell us about your vision and let's create something
+      beautiful together.
+    </p>
+
+    <!-- Replace this with your business email -->
+    
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      &copy; <span id="year">2026</span> Avee Lifestyle Events.
+      All rights reserved.
+    </p>
+
+    <p>Creating beautiful memories, one event at a time.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>

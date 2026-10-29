@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Event Booking Form | Avee Lifestyle Events</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f2e5df;
+            color: #392c2b;
+            padding: 30px 15px;
+        }
+
+        .form-container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 35px;
+            background-color: #fbf4f0;
+            border: 1px solid #c8b3a9;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(57, 44, 43, 0.08);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h1 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .form-header h2 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .form-header p {
+            color: #806e68;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #c8b3a9;
+            margin: 25px 0;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 9px;
+            font-size: 15px;
+        }
+
+        .required {
+            color: #a04438;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #b9a49b;
+            border-radius: 10px;
+            background-color: #fffaf7;
+            color: #392c2b;
+            font-size: 15px;
+            font-family: inherit;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: 2px solid #a88778;
+            border-color: #a88778;
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .hint {
+            display: block;
+            margin-top: 7px;
+            color: #806e68;
+            font-size: 13px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            margin-top: 10px;
+            background-color: #6b4b40;
+            color: #ffffff;
+            border: none;
+            border-radius: 35px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #49332c;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 22px;
+            color: #806e68;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            color: #6b4b40;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px 10px;
+            }
+
+            .form-container {
+                padding: 25px 18px;
+            }
+
+            .form-header h1 {
+                font-size: 25px;
+            }
+
+            .form-header h2 {
+                font-size: 19px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="form-container">
+
+        <header class="form-header">
+            <h1>AVee Lifestyle Events</h1>
+            <h2>Book Your Event With Us</h2>
+
+            <p>
+                Elegant Events. Thoughtfully Planned.
+            </p>
+
+            <p>
+                Tell us about your special occasion and
+                let us help you bring your vision to life.
+            </p>
+        </header>
+
+        <hr>
+
+        <form action="#" method="post">
+            <form action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="2288a2fd-1381-44e2-bd5e-e6f6d63d4eb9">
+
+            <!-- 1. Full Name -->
+            <div class="form-group">
+                <label for="fullname">
+                    1. Full Name <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="fullname"
+                    name="full_name"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    required
+                >
+            </div>
+
+            <!-- 2. Phone Number -->
+            <div class="form-group">
+                <label for="phone">
+                    2. Phone Number <span class="required">*</span>
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone_number"
+                    placeholder="Enter your phone number"
+                    autocomplete="tel"
+                    required
+                >
+            </div>
+
+            <!-- 3. Type of Event -->
+            <div class="form-group">
+                <label for="event">
+                    3. Type of Event <span class="required">*</span>
+                </label>
+
+                <select id="event" name="event_type" required>
+                    <option value="">Select your event</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Birthday">Birthday</option>
+                    <option value="Traditional Introduction">
+                        Traditional Introduction
+                    </option>
+                    <option value="Engagement">Engagement</option>
+                    <option value="Bridal Shower">Bridal Shower</option>
+                    <option value="Anniversary">Anniversary</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <!-- 4. Event Category -->
+            <div class="form-group">
+                <label for="event-category">
+                    4. Event Category <span class="required">*</span>
+                </label>
+
+                <select
+                    id="event-category"
+                    name="event_category"
+                    required
+                >
+                    <option value="">Select event category</option>
+                    <option value="Social Event">Social Event</option>
+                    <option value="Traditional Event">
+                        Traditional Event
+                    </option>
+                    <option value="Religious Event">
+                        Religious Event
+                    </option>
+                    <option value="Corporate Event">
+                        Corporate Event
+                    </option>
+                    <option value="Private Celebration">
+                        Private Celebration
+                    </option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <!-- 5. Event Venue or Location -->
+            <div class="form-group">
+                <label for="location">
+                    5. Event Venue or Location
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="location"
+                    name="event_location"
+                    placeholder="Enter city, venue, or address"
+                    required
+                >
+            </div>
+
+            <!-- 6. Estimated Event Budget -->
+            <div class="form-group">
+                <label for="budget">
+                    6. Estimated Event Budget
+                    <span class="required">*</span>
+                </label>
+
+                <select id="budget" name="event_budget" required>
+                    <option value="">Select your estimated budget</option>
+                    <option value="Below ₦200,000">
+                        Below ₦200,000
+                    </option>
+                    <option value="₦200,000 - ₦500,000">
+                        ₦200,000 - ₦500,000
+                    </option>
+                    <option value="₦500,000 - ₦1,000,000">
+                        ₦500,000 - ₦1,000,000
+                    </option>
+                    <option value="₦1,000,000 - ₦3,000,000">
+                        ₦1,000,000 - ₦3,000,000
+                    </option>
+                    <option value="Above ₦3,000,000">
+                        Above ₦3,000,000
+                    </option>
+                    <option value="Not Yet Decided">
+                        Not yet decided
+                    </option>
+                </select>
+            </div>
+
+            <!-- 7. Services Needed -->
+            <div class="form-group">
+                <label for="services">
+                    7. Services Needed <span class="required">*</span>
+                </label>
+
+                <select id="services" name="services_needed" required>
+                    <option value="">Select a service</option>
+                    <option value="Full Event Planning">
+                        Full Event Planning
+                    </option>
+                    <option value="Partial Planning">
+                        Partial Planning
+                    </option>
+                    <option value="Vendor Coordination">
+                        Vendor Coordination
+                    </option>
+                    <option value="Planning and Decoration">
+                        Planning and Decoration
+                    </option>
+                </select>
+
+                <small class="hint">
+                    Choose the service that best suits your needs.
+                </small>
+            </div>
+
+            <!-- 8. Additional Information -->
+            <div class="form-group">
+                <label for="additional-info">
+                    8. Additional Information About Your Event
+                </label>
+
+                <textarea
+                    id="additional-info"
+                    name="additional_information"
+                    placeholder="Tell us about your preferred date, number of guests, theme, colours, special requests, or anything else we should know..."
+                ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">
+                Submit Booking Request
+            </button>
+
+        </form>
+
+        <p class="footer-text">
+            Luxury look · Affordable planning · Personal service
+            <br>
+            Thank you for choosing AVee Lifestyle Events.
+        </p>
+
+        <a href="index.html" class="back-link">
+            &larr; Back to Home
+        </a>
+
+    </main>
+
+</body>
+</html>
